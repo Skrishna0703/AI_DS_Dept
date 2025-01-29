@@ -53,10 +53,23 @@
     font-weight: 600;
     transition: .5s;
 }
+.btn.btn-pri{
+    margin-top: 1rem;
+    display: inline-block;
+    padding: 15px 30px;
+    background: linear-gradient(45deg, #0ff, #ff00ff);
+    color: #fff;
+    text-decoration: none;
+    border-radius: 25px;
+    transition: transform 0.3s;
+}
 
-.btn.btn-primary,
+.btn.btn-primary{
+   
+}
 .btn.btn-secondary {
     color: #FFFFFF;
+    
 }
 
 .btn-square {

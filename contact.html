@@ -142,19 +142,23 @@
                         <div class="row g-3">
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                                    <form action="https://api.web3forms.com/submit" method="POST">
+
+                                        <!-- Replace with your Access Key -->
+                                        <input type="hidden" name="access_key" value="71328982-b3c0-400a-9a7c-480954892004">
+                                    <input type="text" class="form-control" id="name" name="Name" placeholder="Your Name">
                                     <label for="name">Your Name</label>
                                 </div>
                             </div>
                             <div class="col-md-6">
                                 <div class="form-floating">
-                                    <input type="email" class="form-control" id="email" placeholder="Your Email">
+                                    <input type="email" class="form-control" id="email" name="Email_id" placeholder="Your Email">
                                     <label for="email">Your Email</label>
                                 </div>
                             </div>
                             <div class="col-12">
                                 <div class="form-floating">
-                                    <input type="text" class="form-control" id="subject" placeholder="Subject">
+                                    <input type="text" class="form-control" id="subject" name="Subject" placeholder="Subject">
                                     <label for="subject">Subject</label>
                                 </div>
                             </div>
@@ -165,7 +169,7 @@
                                 </div>
                             </div>
                             <div class="col-12">
-                                <button class="btn btn-primary w-100 py-3" type="submit">Send Message</button>
+                                <button class="btn btn-pri w-100 py-3" type="submit">Send Message</button>
                             </div>
                         </div>
                     </form>
