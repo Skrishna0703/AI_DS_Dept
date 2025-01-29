@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Department Of AI&DS</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="" name="keywords">
+    <meta content="" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+    <link rel="icon" href="img/favicon.ico" type="image/x-icon">
+
+
+    <!-- Google Web Fonts -->
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> -->
+    <!-- <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Stardos+Stencil:wght@400;700&display=swap" rel="stylesheet">
+    <!-- Icon Font Stylesheet -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/animate/animate.min.css" rel="stylesheet">
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+   
+
+    <!-- Template Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+</head>
+<body id="page-content">
+    <div id="particles-js"></div>
+    
+    <div id="popup-overlay">
+        <div id="popup-content">
+            <button id="popup-close">&times;</button>
+            <img src="img/tb1.png" alt="Welcome to AI & DS">
+            <div class="popup-footer">
+                <a href="participate.html" class="btn btn-primary">Participate Now</a>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        /* Popup Overlay */
+          #popup-overlay {
+            display: none; /* Hidden by default */
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            /* Dark background with opacity */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease; /* Smooth fade-in effect */
+        } 
+        /* Popup Content */
+        #popup-content {
+            position: relative;
+            padding: 20px;
+            border-radius: 10px;
+            /* background:url("img/back_img.jpeg"); */
+            background: rgb(0, 0, 0, 0.10);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+            max-width: 90%;
+            max-height: 90%;
+            text-align: center;
+            z-index: 10000; /* Ensure it stays on top of the overlay */
+            /* animation: backgroundAnimation 12s infinite linear;
+            background: linear-gradient(45deg, #ff6a00, #ee0979);  */
+        }
+    
+        /* Popup Image */
+        #popup-content img {
+            max-width: 50%;
+            max-height: 50%;
+            border-radius: 10px;
+        }
+    
+        /* Close Button */
+        #popup-close {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background: #ff5e5e;
+            color: #fff;
+            border: none;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            font-size: 16px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+        }
+    
+        /* Participate Button */
+        .popup-footer .btn {
+            /* position: relative;
+            margin-top: -40px;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
+            text-decoration: none;
+            color: #fff;
+            background-color: #007bff;
+            border: none;
+            
+            transition: background-color 0.3s ease; */
+            margin-top: -7rem;
+            display: inline-block;
+            padding: 15px 30px;
+            background: linear-gradient(45deg, #0ff, #ff00ff);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 25px;
+            transition: transform 0.3s;
+        }
+    
+        .popup-footer .btn:hover {
+            background-color: #0056b3;
+        }
+    
+        /* Animated background for Popup */
+        /* @keyframes backgroundAnimation {
+            0% {
+                background: linear-gradient(45deg, #ff6a00, #ee0979);
+            }
+            25% {
+                background: linear-gradient(45deg, #ff8c00, #ff8c00);
+            }
+            50% {
+                background: linear-gradient(45deg, #ff6a00, #ff007f);
+            }
+            75% {
+                background: linear-gradient(45deg, #ff6a00, #ff0080);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff6a00, #ee0979);
+            }
+        } */
+        @media (max-width: 768px) {
+            .popup-footer .btn {
+                margin-top: -2rem !important;
+            }
+            
+        }
+        
+    </style>
+    
+    
+    <script>
+        window.onload = function () {
+            const popupOverlay = document.getElementById("popup-overlay");
+            const closeButton = document.getElementById("popup-close");
+    
+            // Show the popup
+            popupOverlay.style.display = "flex";
+            popupOverlay.style.opacity = 1; // Fade-in effect
+    
+            // Close the popup when the close button is clicked
+            closeButton.addEventListener("click", function () {
+                popupOverlay.style.opacity = 0; // Fade-out effect
+                setTimeout(() => {
+                    popupOverlay.style.display = "none";
+                }, 500); // Match fade-out duration
+            });
+    
+            // Close the popup when clicking outside the popup content
+            popupOverlay.addEventListener("click", function (e) {
+                if (e.target === popupOverlay) {
+                    popupOverlay.style.opacity = 0; // Fade-out effect
+                    setTimeout(() => {
+                        popupOverlay.style.display = "none";
+                    }, 500); // Match fade-out duration
+                }
+            });
+        };
+    </script>
+    
+    
+    
+    
+
+    <!-- Spinner Start -->
+    <div id="homepageContent" class="d-none bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
+        <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
+            <span class="sr-only">Loading...</span>
+        </div>
+    </div>
+    <!-- Spinner End -->
+
+    <!-- Navbar Start -->
+    <nav class="navbar navbar-expand-lg bg-white navbar-light shadow sticky-top p-0 " id="homepageNavbar">
+        <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>AI & DS</h2>
+        </a>
+        <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarCollapse">
+            <div class="navbar-nav ms-auto p-4 p-lg-0">
+                <a href="index.html" class="nav-item nav-link active">Home</a>
+                <a href="about.html" class="nav-item nav-link">About</a>
+                <a href="archivement.html" class="nav-item nav-link">Achivements</a>
+                <a href="team.html" class="nav-item nav-link">Gallery</a>
+                <a href="testimonial.html" class="nav-item nav-link">Event</a>
+                <a href="contact.html" class="nav-item nav-link">Contact</a>
+            </div>
+        </div>
+    </nav>
+   
+
+
+
+<!-- Carousel Start -->
+<div class="container-fluid p-0 mb-5">
+    <div class="owl-carousel header-carousel position-relative">
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/1.jpg" alt="" style="width: 100%; height: 720px; object-fit: cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Department Of</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Artificial Intelligence and Data Science</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Forefront of research and innovation in AI and data-driven technologies. Explore our programs, research opportunities, and resources to learn more about the exciting possibilities in this dynamic field.</p>
+                            <a href="about.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="owl-carousel-item position-relative">
+            <img class="img-fluid" src="img/2.jpg" alt="" style="width: 100%; height: 720px; object-fit: cover;">
+            <div class="position-absolute top-0 start-0 w-100 h-100 d-flex align-items-center" style="background: rgba(24, 29, 56, .7);">
+                <div class="container">
+                    <div class="row justify-content-start">
+                        <div class="col-sm-10 col-lg-8">
+                            <h5 class="text-primary text-uppercase mb-3 animated slideInDown">Department Of</h5>
+                            <h1 class="display-3 text-white animated slideInDown">Artificial Intelligence and Data Science</h1>
+                            <p class="fs-5 text-white mb-4 pb-2">Forefront of research and innovation in AI and data-driven technologies. Explore our programs, research opportunities, and resources to learn more about the exciting possibilities in this dynamic field.</p>
+                            <a href="about.html" class="btn btn-primary py-md-3 px-md-5 me-3 animated slideInLeft">Read More</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+    <!-- Carousel End -->
+
+
+    <!-- Service Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-graduation-cap text-primary mb-4"></i>
+                            <h5 class="mb-3">Expert Instructors</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-globe text-primary mb-4"></i>
+                            <h5 class="mb-3">Internet Facility</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-home text-primary mb-4"></i>
+                            <h5 class="mb-3">Big Classrooms</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-sm-6 wow fadeInUp" data-wow-delay="0.7s">
+                    <div class="service-item text-center pt-3">
+                        <div class="p-4">
+                            <i class="fa fa-3x fa-book-open text-primary mb-4"></i>
+                            <h5 class="mb-3">Book Library</h5>
+                            <p>Diam elitr kasd sed at elitr sed ipsum justo dolor sed clita amet diam</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Service End -->
+
+
+    <!-- About Start -->
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="row g-5">
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s" style="min-height: 400px;">
+                    <div class="position-relative h-100">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/kite2.jpg" alt="" style="object-fit: cover;">
+                    </div>
+                </div>
+                <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <h6 class="section-title bg-white text-start text-primary pe-3">About Us</h6>
+                    <h1 class="mb-4">Welcome to AI & DS Department</h1>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    <p class="mb-4">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit. Aliqu diam amet diam et eos. Clita erat ipsum et lorem et sit, sed stet lorem sit clita duo justo magna dolore erat amet</p>
+                    <div class="row gy-2 gx-4 mb-4">
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Skilled Instructors</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Big Labs</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Talented Student</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Full Functioned Classrooms</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Friendly Staff</p>
+                        </div>
+                        <div class="col-sm-6">
+                            <p class="mb-0"><i class="fa fa-arrow-right text-primary me-2"></i>Book Library</p>
+                        </div>
+                    </div>
+                    <a class="btn btn-primary py-3 px-5 mt-2" href="about.html">Read More</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About End -->
+
+
+    <!-- Categories Start -->
+    <div class="container-xxl py-5 category">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Gallery</h6>
+                <h1 class="mb-5">Event photos</h1>
+            </div>
+            <div class="row g-3">
+                <div class="col-lg-7 col-md-6">
+                    <div class="row g-3">
+                        <div class="col-lg-12 col-md-12 wow zoomIn" data-wow-delay="0.1s">
+                            <a class="position-relative d-block overflow-hidden" href="team.html">
+                                <img class="img-fluid" src="img/2.jpg"  style="height: 400px; width: 100%;">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">TechnoBash 2024</h5>
+                                    <small class="text-primary">10 Photos</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.3s">
+                            <a class="position-relative d-block overflow-hidden" href="team.html">
+                                <img class="img-fluid" src="img/t1.jpg" style="height: 400px; width: 100%;" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Teachers Day</h5>
+                                    <small class="text-primary">5 Photos</small>
+                                </div>
+                            </a>
+                        </div>
+                        <div class="col-lg-6 col-md-12 wow zoomIn" data-wow-delay="0.5s">
+                            <a class="position-relative d-block overflow-hidden" href="">
+                                <img class="img-fluid" src="img/tra4.jpg" style="height: 400px; width: 100%;" alt="">
+                                <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin: 1px;">
+                                    <h5 class="m-0">Traditional Day</h5>
+                                    <small class="text-primary">49 Photos</small>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-5 col-md-6 wow zoomIn" data-wow-delay="0.7s" style="min-height: 350px;">
+                    <a class="position-relative d-block h-100 overflow-hidden" href="team.html">
+                        <img class="img-fluid position-absolute w-100 h-100" src="img/kite3.jpg" alt="" style="object-fit: cover;">
+                        <div class="bg-white text-center position-absolute bottom-0 end-0 py-2 px-3" style="margin:  1px;">
+                            <h5 class="m-0">Kite Flying Event 2025</h5>
+                            <small class="text-primary">5 Photos</small>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Categories Start -->
+
+    <style>
+        /* Hover Effect */
+        .course-item {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .course-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+    
+        /* Fade-in Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .wow {
+            animation-name: fadeInUp;
+            animation-duration: 0.8s;
+            animation-fill-mode: both;
+        }
+        .wow[data-wow-delay="0.1s"] {
+            animation-delay: 0.1s;
+        }
+        .wow[data-wow-delay="0.3s"] {
+            animation-delay: 0.3s;
+        }
+        .wow[data-wow-delay="0.5s"] {
+            animation-delay: 0.5s;
+        }
+    </style>
+    
+    <div class="container-xxl py-5">
+        <div class="container">
+            <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
+                <h6 class="section-title bg-white text-center text-primary px-3">Achivements</h6>
+                <h1 class="mb-5">Class Rankers</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <!-- First Year -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">Divesh Bari</h3>
+                            <div class="mb-3">
+                               Rank : First
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.50</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
+
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Second Year -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">Prathamesh Bagawat</h3>
+                            <div class="mb-3">
+                               Rank : Third
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.15</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
+
+                        </div>
+                    </div>
+                </div>
+    
+                <!-- Third Year -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="course-item bg-light">
+                        <div class="position-relative overflow-hidden">
+                            <img class="img-fluid" src="./Student/Tejas.jpg" style="width: 450px; height: 300px;" alt="">
+                        </div>
+                        <div class="text-center p-4 pb-0">
+                            <h3 class="mb-0">Tejas Nikam</h3>
+                            <div class="mb-3">
+                               Rank : Third
+                            </div>
+                        </div>
+                        <div class="d-flex border-top">
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>8.93</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+ 
+    
+
+    <!-- Testimonial Start -->
+    <div class="container-xxl py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h6 class="section-title bg-white text-center text-primary px-3">Feedback</h6>
+                <h1 class="mb-5">Our Students Say!</h1>
+            </div>
+            <div class="owl-carousel testimonial-carousel position-relative">
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="./Student/rtndip.png" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Ratndeep Gurav</h5>
+                    <p>Data Scientist</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="./Student/Onkar.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Onkar Tagade</h5>
+                    <p>Full Stack Developer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="./Student/Sandeep.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Sandeep Borkar</h5>
+                    <p><Main>MERN Developer</Main></p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+                <div class="testimonial-item text-center">
+                    <img class="border rounded-circle p-2 mx-auto mb-3" src="./Student/Tejas.jpg" style="width: 80px; height: 80px;">
+                    <h5 class="mb-0">Tejas Nikam</h5>
+                    <p>REST Developer</p>
+                    <div class="testimonial-text bg-light text-center p-4">
+                    <p class="mb-0">Tempor erat elitr rebum at clita. Diam dolor diam ipsum sit diam amet diam et eos. Clita erat ipsum et lorem et sit.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Testimonial End -->
+        
+
+    <!-- Footer Start -->
+    <div class="container-fluid bg-dark text-light text-center footer pt-3 mt-3 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container py-5 d-flex flex-column justify-content-center align-items-center">Follow on Social Media
+            <!-- Social Media Links -->
+            <div class="d-flex justify-content-center pt-3 mb-3">
+                <a class="btn btn-outline-light btn-social mx-2" href="https://www.instagram.com/gsmcoe__ai_ds?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="><i class="fab fa-instagram"></i></a>
+                <!-- <a class="btn btn-outline-light btn-social mx-2" href=""><i class="fab fa-facebook-f"></i></a> -->
+                <a class="btn btn-outline-light btn-social mx-2" href="https://youtube.com/@deptai-ds_gsmcoe757?si=VFKTpYh1tPDTOQzG"><i class="fab fa-youtube"></i></a>
+                <a class="btn btn-outline-light btn-social mx-2" href="https://www.linkedin.com/school/genba-sopanrao-moze-college-of-engineering/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
+            </div>
+            
+          
+            <hr class="w-50 my-4" style="border-top: 1px solid #ffffff;">
+    
+           
+            <div class="text-center">
+                <p class="mb-0">&copy; All Rights Reserved 2025. &
+                Designed By <a class="border-bottom" href="https://shrikrishnasutar-portfolio2.netlify.app/">Code Crafters</a></p>
+              
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        particlesJS('particles-js',
+            {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#0ff"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.5,
+                        "random": false
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#0ff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6,
+                        "direction": "none",
+                        "random": false,
+                        "straight": false,
+                        "out_mode": "out",
+                        "bounce": false
+                    }
+                },
+                "interactivity": {
+                    "detect_on": "canvas",
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        },
+                        "resize": true
+                    }
+                },
+                "retina_detect": true
+            }
+        );
+    </script>
+    <!-- Footer End -->
+
+
+    <!-- Back to Top -->
+    <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="lib/wow/wow.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/waypoints/waypoints.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

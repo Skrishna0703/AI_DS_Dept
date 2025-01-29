@@ -1,0 +1,165 @@
+/* Basic Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Container for video and centered image */
+.container-fluid {
+    position: relative;
+    padding: 0;
+}
+
+.owl-carousel-item {
+    position: relative;
+}
+
+/* Video styling */
+video {
+    width: 100%;
+    height: 100vh; /* Ensure the video fills the viewport height */
+    object-fit: cover;
+}
+
+/* Image overlay on top of the video */
+img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 50%;
+    max-height: 50%;
+    object-fit: contain;
+    z-index: 1;
+}
+
+/* Button styling below the video */
+
+.button {
+    position: relative;
+    padding: 12px 35px;
+    background: #fec195;
+    font-size: 17px;
+    font-weight: 500;
+    color: #181818;
+    border: 3px solid #fec195;
+    border-radius: 8px;
+    box-shadow: 0 0 0 #fec1958c;
+    transition: all 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.star {
+    position: absolute;
+    width: 0;
+    height: auto;
+    filter: drop-shadow(0 0 0 #fffdef);
+    z-index: -1;
+    transition: all 0.5s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+button:hover {
+    background: transparent;
+    color: #fec195;
+    box-shadow: 0 0 25px #fec1958c;
+    transform: scale(1.1);
+}
+
+button:hover .star-1 {
+    top: -80%;
+    left: -30%;
+    width: 25px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+button:hover .star-2 {
+    top: -25%;
+    left: 10%;
+    width: 15px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+button:hover .star-3 {
+    top: 55%;
+    left: 25%;
+    width: 5px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+button:hover .star-4 {
+    top: 30%;
+    left: 80%;
+    width: 8px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+button:hover .star-5 {
+    top: 25%;
+    left: 115%;
+    width: 15px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+button:hover .star-6 {
+    top: 5%;
+    left: 60%;
+    width: 5px;
+    filter: drop-shadow(0 0 10px #fffdef);
+}
+
+.fil0 {
+    fill: #fffdef;
+}
+
+/* Mobile/Tablet responsiveness */
+@media (max-width: 768px) {
+    /* Adjust the size of the image */
+    img {
+        max-width: 70%;
+        max-height: 70%;
+    }
+
+    /* Adjust button size */
+    .overlay-button {
+        padding: 10px 30px;
+        font-size: 16px;
+    }
+
+    /* Ensure the button is centered and looks good */
+    .overlay-button {
+        position: relative;
+        bottom: 10px; /* Reduce space below button */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Adjust image size further for smaller screens */
+    img {
+        max-width: 80%;
+        max-height: 80%;
+    }
+
+    /* Adjust button size for smaller screens */
+    .overlay-button {
+        padding: 8px 25px;
+        font-size: 14px;
+    }
+
+    .overlay-button {
+        bottom: 10px; /* Keep the button closer to the bottom */
+    }
+}
+
+@media (max-width: 400px) {
+    /* Make the image size even smaller */
+    img {
+        max-width: 90%;
+        max-height: 90%;
+    }
+
+    .overlay-button {
+        padding: 8px 20px;
+        font-size: 12px;
+    }
+}
