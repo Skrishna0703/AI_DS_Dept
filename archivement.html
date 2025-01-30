@@ -25,6 +25,8 @@
     <!-- Libraries Stylesheet -->
     <link href="lib/animate/animate.min.css" rel="stylesheet">
     <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+        <!-- particles-js cdn -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
 
     <!-- Customized Bootstrap Stylesheet -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -103,7 +105,15 @@
         </div>
     </div>
     <!-- Header End -->
-
+    <div id="particles-js"></div>
+    <style>
+         #particles-js 
+         {
+            position:fixed;
+            width: 100%;
+            height: 100%;
+                 }
+    </style>
 
     <!-- Categories Start -->
     <div class="container-xxl py-5 category">
@@ -185,14 +195,14 @@
         <div class="container">
             <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
                 <h6 class="section-title bg-white text-center text-primary px-3">Achivements</h6>
-                <h1 class="mb-5"> Second Year Class Rankers</h1>
+                <h1 class="mb-5">Class Rankers</h1>
             </div>
             <div class="row g-4 justify-content-center">
                 <!-- First Year -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <img class="img-fluid" src="Student/Divesh.jpg" style="width: 450px; height: 300px;" alt="">
                         </div>
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0">Divesh Bari</h3>
@@ -201,7 +211,7 @@
                             </div>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.50</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.25</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
 
                         </div>
@@ -212,16 +222,16 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <img class="img-fluid" src="Student/Prathamesh.jpg" style="width: 450px; height: 300px;" alt="">
                         </div>
                         <div class="text-center p-4 pb-0">
-                            <h3 class="mb-0">Prathamesh Bagawat</h3>
+                            <h3 class="mb-0">Prathamesh Bhagawat</h3>
                             <div class="mb-3">
                                Rank : Second
                             </div>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.15</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.02</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
 
                         </div>
@@ -277,7 +287,58 @@
         </div>
     </div>
     <!-- Footer End -->
-
+    <script>
+        particlesJS('particles-js',
+            {
+                "particles": {
+                    "number": {
+                        "value": 80,
+                        "density": {
+                            "enable": true,
+                            "value_area": 800
+                        }
+                    },
+                    "color": {
+                        "value": "#0ff"
+                    },
+                    "shape": {
+                        "type": "circle"
+                    },
+                    "opacity": {
+                        "value": 0.5
+                    },
+                    "size": {
+                        "value": 3,
+                        "random": true
+                    },
+                    "line_linked": {
+                        "enable": true,
+                        "distance": 150,
+                        "color": "#0ff",
+                        "opacity": 0.4,
+                        "width": 1
+                    },
+                    "move": {
+                        "enable": true,
+                        "speed": 6
+                    }
+                },
+                "interactivity": {
+                    "events": {
+                        "onhover": {
+                            "enable": true,
+                            "mode": "repulse"
+                        },
+                        "onclick": {
+                            "enable": true,
+                            "mode": "push"
+                        }
+                    }
+                },
+                "retina_detect": true
+            }
+        );
+    </script>
 
     <!-- Back to Top -->
     <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
