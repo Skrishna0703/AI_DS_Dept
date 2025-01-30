@@ -20,16 +20,7 @@
     bottom: 45px;
     z-index: 99;
 }
-#videoOverlay {
-    background: rgba(0, 0, 0, 0.7); /* Optional: dark overlay for video */
-    z-index: 9999;
-}
 
-#introVideo {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
 
 
 /*** Spinner ***/
@@ -46,7 +37,7 @@
     opacity: 1;
 }
 
-
+ 
 /*** Button ***/
 .btn {
     font-family: 'Nunito', sans-serif;
@@ -119,12 +110,14 @@
     font-weight: 900;
     vertical-align: middle;
     margin-left: 8px;
+    backdrop-filter: blur(10px);
 }
 
 .navbar-light .navbar-nav .nav-link {
     margin-right: 30px;
     padding: 25px 0;
-    color: #FFFFFF;
+    
+    backdrop-filter: blur(10px);
     font-size: 15px;
     text-transform: uppercase;
     outline: none;
@@ -142,7 +135,7 @@
     }
 
     .navbar-light .navbar-nav {
-        border-top: 1px solid #EEEEEE;
+        /* border-top: 1px solid #EEEEEE; */
     }
 }
 
