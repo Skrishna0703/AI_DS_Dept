@@ -48,8 +48,41 @@
     <!-- Navbar Start -->
     <nav class="navbar navbar-expand-lg navbar-light bg-transparent sticky-top p-0 shadow-lg border-bottom border-light" id="homepageNavbar" style="backdrop-filter: blur(20px);">
         <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <h2 class="m-0 text-primary"><i class="fa fa-book me-3"></i>AI & DS</h2>
+            <img src="img/logo.png" alt="Logo" class="logo">
+            <div class="brand-text">
+                <span class="d-block d-md-inline">Artificial Intelligence And</span>
+                <span class="d-block d-md-inline ms-md-1">Data Science</span>
+            </div>
         </a>
+        
+        
+                <style>
+                    .logo {
+            width: 3rem;
+            height: 2rem;
+        }
+        
+        .brand-text {
+            font-size: 1.2rem;
+            color: #007bff; /* Bootstrap primary color */
+            font-weight: bold;
+            margin-left: 0.5rem; /* Ensure spacing */
+        }
+        
+        /* Responsive Text Scaling */
+        @media (min-width: 768px) { /* Tablets & Up */
+            .brand-text {
+                font-size: 1.5rem;
+            }
+        }
+        
+        @media (min-width: 992px) { /* Desktop */
+            .brand-text {
+                font-size: 1.8rem;
+            }
+        }
+        
+            </style>
         <button type="button" class="navbar-toggler me-4" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -275,21 +308,26 @@
                 <a class="btn btn-outline-light btn-social mx-2" href="https://www.linkedin.com/school/genba-sopanrao-moze-college-of-engineering/posts/?feedView=all"><i class="fab fa-linkedin-in"></i></a>
             </div>
             <hr class="w-50 my-4" style="border-top: 1px solid #ffffff;">
-            <div class="container py-3 d-flex flex-column justify-content-center align-items-center">Grateful For Your Incredible Sponsorship Support</div>
-            <div class="sponsorrow">
-            <div class="d-flex justify-content-center pt-2 mb-3">
-                <img src="./Sponser/1.png" style="height: 5rem; width: auto; background-color:white">
-            </div>
-            <div class="d-flex justify-content-center pt-2 mb-3">
-                <img src="./Sponser/logo.png" style="height: 5rem; width: 12rem; background-color: white;padding: 1rem;">
-            </div>
-            <div class="d-flex justify-content-center pt-2 mb-3">
-                <img src="./Sponser/disha.png" style="height: 5rem; width: auto; background-color:white;padding: 1rem;">
-            </div>
-            <div class="d-flex justify-content-center pt-2 mb-3">
-                <img src="./Sponser/PRO GAMING COLOUR.png" style="height: 5rem; width: auto; background-color:white;padding: 1rem;">
-            </div>
-        </div>
+            <div class="container py-3 d-flex flex-column justify-content-center align-items-center"
+            style="color: white;">Grateful For Your Incredible Sponsorship Support
+       </div>
+       <div class="sponsorrow">
+           <div class="row d-flex justify-content-center">
+               <div class="col-12 col-md-3 d-flex justify-content-center pt-2 mb-3">
+                   <img src="./Sponser/1.png" class="img-fluid" style="max-height: 5rem; background-color:white;">
+               </div>
+               <div class="col-12 col-md-3 d-flex justify-content-center pt-2 mb-3">
+                   <img src="./Sponser/logo.png" class="img-fluid" style="max-height: 5rem; max-width: 12rem; background-color:white; padding: 1rem;">
+               </div>
+               <div class="col-12 col-md-3 d-flex justify-content-center pt-2 mb-3">
+                   <img src="./Sponser/disha.png" class="img-fluid" style="max-height: 5rem; background-color:white; padding: 1rem;">
+               </div>
+               <div class="col-12 col-md-3 d-flex justify-content-center pt-2 mb-3">
+                   <img src="./Sponser/PRO GAMING COLOUR.png" class="img-fluid" style="max-height: 5rem; background-color:white; padding: 1rem;">
+               </div>
+           </div>
+       </div>
+       
           <style>
             .sponsorrow{
                 display: flex;
@@ -375,6 +413,12 @@
 
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
+    <!-- Chatbot -->
+    <script
+    chatbot_id="679bae1f4f9f05ec47361a79"
+    data-type="default"
+    src="https://app.thinkstack.ai/bot/thinkstackai-loader.min.js">
+</script>
 </body>
 
 </html>
