@@ -55,14 +55,13 @@
             <button id="popup-close">&times;</button>
             <img src="img/tb1.png" alt="Welcome to AI & DS">
             <div class="popup-footer">
-                <a href="testimonial.html" target="_blank"  class="btn btn-primary">Participate Now</a>
+                <a href="testimonial.html"   class="btn btn-primary">Participate Now</a>
             </div>
         </div>
     </div>
     
-    <style>
-        
-       /* Popup Overlay */
+   <style>
+    /* Popup Overlay */
 #popup-overlay {
     display: flex;
     justify-content: center;
@@ -72,9 +71,9 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3); 
-    /* Dark background */
-    z-index: 9999;
+    background: rgba(0, 0, 0, 0.3); /* Dark background */
+    z-index: 9999; 
+    /* margin-top: 2rem; */
 }
 
 /* Popup Content Box */
@@ -99,9 +98,16 @@
     left: 0;
     right: 0;
     bottom: 0;
-    border-radius: 12px;
+    border-radius: 7px;
     padding: 3px;
-    background: conic-gradient(from var(--angle), #ff4545, #00ff99, #006aff, #ff0095, #ff4545);
+    background: conic-gradient(
+        from var(--angle),
+        #ff4545,
+        #00ff99,
+        #006aff,
+        #ff0095,
+        #ff4545
+    );
     -webkit-mask: 
         linear-gradient(#000 0 0) content-box, 
         linear-gradient(#000 0 0);
@@ -110,10 +116,11 @@
         linear-gradient(#000 0 0);
     -webkit-mask-composite: destination-out;
     mask-composite: exclude;
-    animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite, colorTransition 5s ease-in-out infinite;
+    
 }
 
-/* Keyframes for Animation */
+/* Keyframes for Rotation Animation */
 @keyframes spin {
     from {
         --angle: 0deg;
@@ -123,37 +130,75 @@
     }
 }
 
+/* Keyframes for Color Transition Animation */
+@keyframes colorTransition {
+    0% {
+        background: conic-gradient(
+            from var(--angle),
+            #ff4545,
+            #00ff99,
+            #006aff,
+            #ff0095,
+            #ff4545
+        );
+    }
+    50% {
+        background: conic-gradient(
+            from var(--angle),
+            #00ff99,
+            #006aff,
+            #ff0095,
+            #ff4545,
+            #00ff99
+        );
+    }
+    100% {
+        background: conic-gradient(
+            from var(--angle),
+            #006aff,
+            #ff0095,
+            #ff4545,
+            #00ff99,
+            #006aff
+        );
+    }
+}
 
-        /* Popup Content */
-        #popup-content {
-            position: relative;
-            padding: 20px;
-            border-radius: 10px;
-            background: rgb(0, 0, 0, 0.10);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
-            max-height: 90%;
-            text-align: center;
-            z-index: 10000; /* Ensure it stays on top of the overlay */
+/* Define the custom property for the angle */
+@property --angle {
+    syntax: '<angle>';
+    inherits: false;
+    initial-value: 0deg;
+}
 
-             /* Adding blue shading border */
-            /* border: 5px solid rgb(10, 10, 11); Semi-transparent blue */
-            /* box-shadow: 0 0 25px rgba(220, 223, 228, 0.6); Glowing effect */
-        }
+/* Popup Content */
+#popup-content {
+    position: relative;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(0, 0, 0, 0.10);
+    backdrop-filter: blur(20px);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    max-width: 90%;
+    max-height: 90%;
+    text-align: center;
+    z-index: 9999; /* Ensure it stays on top of the overlay */
+}
+
+/* Popup Image */
+#popup-content img {
+    max-width: 50%;
+    max-height: 50%;
+    border-radius: 10px;
+}
     
-        /* Popup Image */
-        #popup-content img {
-            max-width: 50%;
-            max-height: 50%;
-            border-radius: 10px;
-        }
+       
         /* Close Button */
         #popup-close {
             position: absolute;
             top: 10px;
             right: 10px;
-            background: #ff5e5e;
+            background: #ca6161;
             color: #fff;
             border: none;
             border-radius: 50%;
@@ -164,33 +209,44 @@
             justify-content: center;
             align-items: center;
             cursor: pointer;
+            margin-top: 0%;
         }
     
         /* Participate Button */
         .popup-footer .btn {
-        
-            margin-top: -7rem;
-            display: inline-block;
-            padding: 15px 30px;
-            background: linear-gradient(45deg, #0ff, #ff00ff);
-            color: #fff;
+            position: relative;
+            margin-top: -40px;
+            margin-bottom: 40px;
+            padding: 10px 20px;
+            font-size: 16px;
+            border-radius: 5px;
             text-decoration: none;
+            color: #fff;
+            background:linear-gradient(45deg, #0ff, #ff00ff);
             border-radius: 25px;
+            display: inline-block;
             transition: transform 0.3s;
+            border: none;
+            display: inline-block;
+            margin-top: -7rem;
+            display: inline-flex;
+            
+            transition: background-color 0.3s ease;
+          
         }
     
         .popup-footer .btn:hover {
             background-color: #0056b3;
         }
-
+    
+       
         @media (max-width: 768px) {
             .popup-footer .btn {
                 margin-top: -2rem !important;
             }
             
         }
-        
-    </style>
+   </style>
     
     
     <script>
@@ -509,7 +565,7 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <img class="img-fluid" src="Student/Divesh.jpg" style="width: 450px; height: 300px;" alt="">
                         </div>
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0">Divesh Bari</h3>
@@ -518,7 +574,7 @@
                             </div>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.50</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.25</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
 
                         </div>
@@ -529,16 +585,16 @@
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="course-item bg-light">
                         <div class="position-relative overflow-hidden">
-                            <img class="img-fluid" src="img/course-3.jpg" alt="">
+                            <img class="img-fluid" src="Student/Prathamesh.jpg" style="width: 450px; height: 300px;" alt="">
                         </div>
                         <div class="text-center p-4 pb-0">
                             <h3 class="mb-0">Prathamesh Bhagawat</h3>
                             <div class="mb-3">
-                               Rank : Third
+                               Rank : Second
                             </div>
                         </div>
                         <div class="d-flex border-top">
-                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.15</small>
+                            <small class="flex-fill text-center border-end py-2"><i class="fa fa-graduation-cap text-primary me-2"></i>9.02</small>
                             <small class="flex-fill text-center border-end py-2"><i class="fa-solid fa-calendar-days text-primary me-2"></i>2024-25</small>
 
                         </div>
@@ -634,10 +690,28 @@
             </div>
             <hr class="w-50 my-4" style="border-top: 1px solid #ffffff;">
             <div class="container py-3 d-flex flex-column justify-content-center align-items-center">Grateful For Your Incredible Sponsorship Support</div>
+            <div class="sponsorrow">
             <div class="d-flex justify-content-center pt-2 mb-3">
-                <img src="./Sponser/1.png" style="height: 5rem; width: 5rem; background-color: #0ff;">
+                <img src="./Sponser/1.png" style="height: 5rem; width: auto; background-color: #0ff;">
             </div>
-          
+            <div class="d-flex justify-content-center pt-2 mb-3">
+                <img src="./Sponser/logo.png" style="height: 5rem; width: 12rem; background-color: #0ff;padding: 1rem;">
+            </div>
+            <div class="d-flex justify-content-center pt-2 mb-3">
+                <img src="./Sponser/disha.png" style="height: 5rem; width: auto; background-color: #0ff;padding: 1rem;">
+            </div>
+            <div class="d-flex justify-content-center pt-2 mb-3">
+                <img src="./Sponser/PRO GAMING COLOUR.png" style="height: 5rem; width: auto; background-color:white;padding: 1rem;">
+            </div>
+        </div>
+          <style>
+            .sponsorrow{
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+            }
+          </style>
             <hr class="w-50 my-4" style="border-top: 1px solid #ffffff;">
      
             <div class="text-center">
